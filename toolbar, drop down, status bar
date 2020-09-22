@@ -1,0 +1,51 @@
+from tkinter import *
+
+def function1():
+    print("saved")
+
+def function2():
+    print("found")
+
+def function3():
+    print("Exit")
+def function4():
+    print("Clicked")
+
+
+root = Tk()
+
+
+mymenu = Menu(root)
+root.config(menu=mymenu)
+
+submenu = Menu(mymenu)
+
+mymenu.add_cascade(label="File",menu=submenu)
+
+submenu.add_cascade(label="save", command=function1)
+
+submenu.add_cascade(label="find", command=function2)
+submenu.add_separator()
+submenu.add_cascade(label="Exit", command=function3)
+
+mymenu.add_cascade(label="settings", command=function3)
+
+toolbar = Frame(root, bg="cyan",)
+insertbutton = Button(toolbar, text="Click here", command=function4)
+insertbutton.pack(side=LEFT, padx=2, pady=4)
+
+newbutton = Button(toolbar, text="dont click here", command=function2)
+newbutton.pack(side=LEFT, padx=5, pady=6)
+toolbar.pack(side=TOP, fill=X)
+
+
+status = Label(root, text="This is a status bar", bd=1, relief=SUNKEN, anchor=W)
+status.pack(side=BOTTOM, fill=X)
+
+toolbar1 = Frame(root, bg='pink')
+insertbutton = Button(toolbar1, text="Click here", command=function4)
+insertbutton.pack(side=LEFT, padx=2, pady=4)
+toolbar1.pack(fill=Y)
+
+
+root.mainloop()
